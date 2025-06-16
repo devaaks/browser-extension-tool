@@ -1,0 +1,12 @@
+# Ignore macOS system files
+.DS_Store
+
+# ignore env variable
+.env
+
+# ignore local vscode configs
+.vscode
+
+# ignore these folder
+/node_modules
+/dist
