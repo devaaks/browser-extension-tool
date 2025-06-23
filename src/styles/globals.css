@@ -3,3 +3,40 @@
 @tailwind utilities;
 
 /* Custom global styles can be added below */
+
+/* Hide scrollbar but keep functionality */
+.hidden-scrollbar {
+  /* Firefox */
+  scrollbar-width: none;
+  
+  /* Internet Explorer and Edge */
+  -ms-overflow-style: none;
+}
+
+/* Webkit browsers (Chrome, Safari, newer Edge) */
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensure scroll functionality still works */
+.hidden-scrollbar {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Custom styling for popup */
+.popup-container {
+  /* Prevent text selection */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Allow text selection for content areas */
+.selectable-text {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}

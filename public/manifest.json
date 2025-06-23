@@ -1,11 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "My Browser Extension",
+  "name": "YouTube Transcript Fetcher",
   "version": "1.0",
-  "description": "A simple browser extension built with React, Tailwind CSS, and TypeScript.",
+  "description": "Automatically fetch and display YouTube video transcripts with clickable timestamps.",
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*"
   ],
   "background": {
     "service_worker": "background.js"
@@ -20,8 +25,9 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
     }
   ],
   "options_page": "options.html",

@@ -3,6 +3,7 @@
 
 # ignore env variable
 .env
+/api/.env
 
 # ignore local vscode configs
 .vscode

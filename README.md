@@ -1,6 +1,6 @@
-# Browser Extension with React, Tailwind CSS, and TypeScript
+# YouTube Transcript Fetcher Extension
 
-This project is a modern browser extension built using **Vite**, **React 18**, **Tailwind CSS**, and **TypeScript**. It includes a popup interface, options page, background script, and content script.
+This is a modern browser extension built using **Vite**, **React 18**, **Tailwind CSS**, and **TypeScript** that automatically fetches YouTube video transcripts and provides **AI-powered summaries** using DeepSeek.
 
 ## Features
 
@@ -10,6 +10,77 @@ This project is a modern browser extension built using **Vite**, **React 18**, *
 - 📘 **TypeScript** - Type-safe JavaScript
 - 🔧 **Manifest V3** - Latest Chrome extension format
 - 🚀 **Hot Module Replacement** - Fast development experience
+- 📺 **YouTube Integration** - Automatic transcript fetching
+- 🤖 **AI Summaries** - Powered by DeepSeek through OpenRouter
+- 🕐 **Clickable Timestamps** - Jump to specific video times
+- 📋 **Copy to Clipboard** - Easy transcript sharing
+- 🔄 **Toggle Views** - Switch between AI summary and full transcript
+
+## YouTube Transcript Features
+
+- **Automatic Detection**: Automatically detects when you're on a YouTube video page
+- **Transcript Fetching**: Fetches available transcripts via Flask API backend
+- **AI Summarization**: Generates concise summaries using DeepSeek AI model
+- **Interactive Timeline**: Click on any timestamp to jump to that moment in the video
+- **Copy Functionality**: Copy the entire transcript to your clipboard with one click
+- **Visual Indicators**: Extension badge shows when a transcript is available
+- **Real-time Updates**: Automatically updates when navigating between videos
+- **Dual View Mode**: Toggle between AI summary and full transcript view
+
+## API Backend
+
+The extension includes a Flask API server that handles:
+- **Transcript Fetching**: Uses `youtube-transcript-api` to get video transcripts
+- **AI Summarization**: Integrates with OpenRouter API to use DeepSeek for summaries
+- **CORS Support**: Enables browser extension communication
+
+### API Endpoints
+
+- `GET /transcript/<video_id>` - Fetch transcript for a YouTube video
+- `GET /summary/<video_id>` - Get AI summary of a YouTube video
+- `GET /health` - Health check endpoint
+- `GET /` - API documentation
+
+## How to Use
+
+1. **Setup the API Backend**:
+   ```bash
+   # Run the setup script
+   ./setup.sh
+   
+   # Or manually:
+   cd api
+   pip install -r requirements.txt
+   
+   # Get an OpenRouter API key from https://openrouter.ai/keys
+   # Add it to api/.env file:
+   echo "OPENROUTER_API_KEY=your_api_key_here" > .env
+   ```
+
+2. **Start the Flask API**:
+   ```bash
+   cd api
+   python index.py
+   ```
+
+3. **Build and Install the Extension**:
+   ```bash
+   npm install
+   npm run build
+   ```
+
+4. **Load in Chrome**: Go to `chrome://extensions/`, enable "Developer mode", click "Load unpacked", select the `dist` folder
+
+5. **Use the Extension**:
+   - Navigate to any YouTube video page
+   - Click the extension icon to view the AI summary
+   - Toggle between summary and full transcript views
+   - Click timestamps to jump to specific video moments
+
+## Visual Indicators
+
+- **Green Badge (✓)**: Transcript successfully fetched and available
+- **No Badge**: No transcript available or not on a YouTube video page
 
 ## Project Structure
 

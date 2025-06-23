@@ -22,10 +22,12 @@ export default defineConfig({
           return '[name].[ext]';
         },
       },
+      external: [],
     },
     outDir: 'dist',
     sourcemap: true,
     copyPublicDir: true,
+    minify: false, // Disable minification to avoid variable name conflicts
   },
   publicDir: 'public',
   resolve: {

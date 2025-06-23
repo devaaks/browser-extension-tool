@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Transcript Extension Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; }
+    </style>
+</head>
+<body>
+    <h1>YouTube Transcript Extension Debug</h1>
+    
+    <div class="test-section info">
+        <h3>Test Instructions</h3>
+        <ol>
+            <li>Load this extension in Chrome Developer Mode</li>
+            <li>Navigate to a YouTube video page</li>
+            <li>Open browser console (F12) and check for log messages</li>
+            <li>Look for the extension badge on the toolbar</li>
+            <li>Click the extension icon to open the popup</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h3>Debug Console Messages to Look For</h3>
+        <ul>
+            <li><code>YouTube Transcript Extension content script loaded</code></li>
+            <li><code>Initializing YouTube transcript extension on: [URL]</code></li>
+            <li><code>YouTube detection: {hostname, pathname, search}</code></li>
+            <li><code>Is YouTube video page: true/false</code></li>
+            <li><code>Extracted video ID: [VIDEO_ID]</code></li>
+            <li><code>Fetching transcript for video: [VIDEO_ID]</code></li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>Troubleshooting</h3>
+        <p><strong>If no console messages appear:</strong></p>
+        <ul>
+            <li>Check that the extension is loaded and enabled</li>
+            <li>Verify the extension has permission for YouTube</li>
+            <li>Try refreshing the YouTube page</li>
+            <li>Check the Extensions page for any errors</li>
+        </ul>
+        
+        <p><strong>If detection fails:</strong></p>
+        <ul>
+            <li>Check the URL format matches: youtube.com/watch?v=...</li>
+            <li>Wait a few seconds for the page to fully load</li>
+            <li>Try navigating to another video</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>Test Videos (Known to have transcripts)</h3>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Rick Astley - Never Gonna Give You Up</a></li>
+            <li><a href="https://www.youtube.com/watch?v=kJQP7kiw5Fk" target="_blank">Luis Fonsi - Despacito</a></li>
+            <li>Any recent popular video should have auto-generated captions</li>
+        </ul>
+    </div>
+</body>
+</html>
